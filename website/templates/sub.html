@@ -1,0 +1,43 @@
+{% extends "base.html"%}
+
+{% block active_sub %}
+active
+{% endblock active_sub %}
+
+
+{% block title %}
+{{text}}
+{% endblock title %}
+
+{% block content %}
+<h1>{{text}}</h1>
+
+<center>
+    {% if my_answer%}
+    <div class="alert alert-{{color}} alert-dismissible fade show" role="alert">
+        <strong>{{my_answer}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {%endif%}
+    <br>
+    <img src="/static/images/{{num_1}}.png" alt="not found!" width="100px" height="auto">
+    -
+    <img src="/static/images/{{num_2}}.png" alt="not found!" width="100px" height="auto">
+
+    <form action="/sub/" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <br>
+            <input type="text" class="form-control" id="text_answer" placeholder="Enter your answer.." name="answer"
+                required>
+            <small class="form-text text-muted">Your answer is: {{answer}}</small>
+            <input type="hidden" name="old_num_1" value="{{num_1}}">
+            <input type="hidden" name="old_num_2" value="{{num_2}}">
+        </div>
+        <br>
+
+
+        <button type="submit" class="btn btn-secondary">Submit</button>
+    </form>
+</center>>
+{% endblock content %}
