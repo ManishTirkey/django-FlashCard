@@ -10,4 +10,4 @@ pip install -r requirements.txt
 
 python manage.py runserver 8000
 
-after typing command just go to your favourite browser and paste this 127.0.0.1:8000 in url and hit the enter key
+after typing command just go to your favourite browser and paste this http://127.0.0.1:8000 in url and hit the enter key
